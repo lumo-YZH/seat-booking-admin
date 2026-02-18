@@ -45,6 +45,12 @@ const routes = [
         meta: { title: '预订管理' }
       },
       {
+        path: 'statistics',
+        name: 'Statistics',
+        component: () => import('@/views/Statistics.vue'),
+        meta: { title: '数据统计' }
+      },
+      {
         path: 'profile',
         name: 'Profile',
         component: () => import('@/views/Profile.vue'),

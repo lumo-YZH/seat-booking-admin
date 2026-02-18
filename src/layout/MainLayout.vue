@@ -32,6 +32,11 @@
           <el-icon><Calendar /></el-icon>
           <span>预订管理</span>
         </el-menu-item>
+        
+        <el-menu-item index="/statistics">
+          <el-icon><DataLine /></el-icon>
+          <span>数据统计</span>
+        </el-menu-item>
       </el-menu>
     </el-aside>
     

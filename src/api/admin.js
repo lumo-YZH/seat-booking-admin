@@ -34,3 +34,31 @@ export const getDashboardStats = () => {
   })
 }
 
+// 获取预订趋势统计
+export const getBookingTrend = (params) => {
+  return request({
+    url: '/admin/report/trend',
+    method: 'get',
+    params
+  })
+}
+
+// 获取会议室使用率统计
+export const getRoomUsage = (params) => {
+  return request({
+    url: '/admin/report/room-usage',
+    method: 'get',
+    params
+  })
+}
+
+// 导出预订记录
+export const exportBookings = (params) => {
+  return `/api/admin/report/export/bookings?startDate=${params.startDate || ''}&endDate=${params.endDate || ''}&roomId=${params.roomId || ''}`
+}
+
+// 导出统计报表
+export const exportStatistics = (params) => {
+  return `/api/admin/report/export/statistics?startDate=${params.startDate || ''}&endDate=${params.endDate || ''}&roomId=${params.roomId || ''}`
+}
+
