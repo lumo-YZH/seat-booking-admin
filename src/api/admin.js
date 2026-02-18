@@ -26,3 +26,11 @@ export const updatePassword = (data) => {
   })
 }
 
+// 获取仪表盘统计数据
+export const getDashboardStats = () => {
+  return request({
+    url: '/admin/admin/stats',
+    method: 'get'
+  })
+}
+

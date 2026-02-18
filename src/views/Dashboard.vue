@@ -67,6 +67,8 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import { getDashboardStats } from '@/api/admin'
+import { ElMessage } from 'element-plus'
 
 const stats = ref({
   userCount: 0,
@@ -75,14 +77,18 @@ const stats = ref({
   totalBooking: 0
 })
 
-onMounted(() => {
-  // 这里可以调用接口获取统计数据
-  stats.value = {
-    userCount: 128,
-    roomCount: 15,
-    todayBooking: 32,
-    totalBooking: 856
+const loadStats = async () => {
+  try {
+    const res = await getDashboardStats()
+    stats.value = res.data
+  } catch (error) {
+    ElMessage.error('加载统计数据失败')
+    console.error(error)
   }
+}
+
+onMounted(() => {
+  loadStats()
 })
 </script>
 

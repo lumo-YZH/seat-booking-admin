@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import { clearCache } from '@/utils/request'
 
 export const useUserStore = defineStore('user', () => {
   const token = ref(localStorage.getItem('admin_token') || '')
@@ -20,6 +21,7 @@ export const useUserStore = defineStore('user', () => {
     userInfo.value = {}
     localStorage.removeItem('admin_token')
     localStorage.removeItem('admin_info')
+    clearCache()  // 清除请求缓存
   }
 
   return {

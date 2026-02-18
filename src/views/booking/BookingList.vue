@@ -4,6 +4,7 @@
       <template #header>
         <div class="card-header">
           <span>预订管理</span>
+          <el-button @click="handleQuery" :icon="Refresh" circle title="刷新"></el-button>
         </div>
       </template>
       
@@ -94,6 +95,7 @@
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
+import { Refresh } from '@element-plus/icons-vue'
 import { getBookingPage, completeBooking, cancelBooking } from '@/api/booking'
 import dayjs from 'dayjs'
 

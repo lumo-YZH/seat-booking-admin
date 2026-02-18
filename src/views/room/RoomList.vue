@@ -4,7 +4,10 @@
       <template #header>
         <div class="card-header">
           <span>会议室管理</span>
-          <el-button type="primary" @click="handleAdd">新增会议室</el-button>
+          <div>
+            <el-button @click="handleQuery" :icon="Refresh" circle title="刷新"></el-button>
+            <el-button type="primary" @click="handleAdd">新增会议室</el-button>
+          </div>
         </div>
       </template>
       
@@ -121,6 +124,7 @@
 import { ref, reactive, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage, ElMessageBox } from 'element-plus'
+import { Refresh } from '@element-plus/icons-vue'
 import { getRoomPage, addRoom, updateRoom, deleteRoom } from '@/api/room'
 
 const router = useRouter()
