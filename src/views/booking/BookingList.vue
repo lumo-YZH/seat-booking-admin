@@ -18,10 +18,10 @@
         </el-form-item>
         <el-form-item label="状态">
           <el-select v-model="queryForm.status" placeholder="请选择状态" clearable>
-            <el-option label="待使用" :value="0" />
-            <el-option label="使用中" :value="1" />
-            <el-option label="已完成" :value="2" />
-            <el-option label="已取消" :value="3" />
+            <el-option label="待确认" :value="0" />
+            <el-option label="已确认" :value="1" />
+            <el-option label="已取消" :value="2" />
+            <el-option label="已完成" :value="3" />
           </el-select>
         </el-form-item>
         <el-form-item>
@@ -117,10 +117,10 @@ const formatTime = (time) => {
 
 const getStatusText = (status) => {
   const map = {
-    0: '待使用',
-    1: '使用中',
-    2: '已完成',
-    3: '已取消'
+    0: '待确认',
+    1: '已确认',
+    2: '已取消',
+    3: '已完成'
   }
   return map[status] || '未知'
 }
